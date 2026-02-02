@@ -1,0 +1,13 @@
+trigger: 
+- noon  
+
+pool: 
+  name: DevOps_Infra
+
+  - task: TerraformTask@5
+    inputs:
+      provider: 'azurerm'
+      command: 'init'
+      backendServiceArm: 'DevOps_Infra'
+      backendAzureRmStorageAccountName: 'rockbackend1'
+      backendAzureRmContainerName: 'tfstate'
